@@ -1,0 +1,947 @@
+vue js install :
+
+npm install -g @vue/cli 
+
+CLI - Command line interface
+
+version :
+vue --version
+
+create Project method 1 :
+
+vue create hello-world 
+npm run serve
+npm run build
+
+npm run serve -- --port 8081
+
+install vue js tool :
+
+vs code-view- extensions -Vetur
+
+Events and condition :
+ 
+v-on:click ,@click,@change
+v-on:dblclick
+v-if = "show" (or) v-show = "show"
+v-else,v-else-if
+v-for = "a in items"
+v-for = "(item, index) in languages"
+v-model
+disabled
+
+Http request :
+
+axios :
+npm install axios --save
+
+
+router install :
+
+npm install vue-router --save
+
+param :
+
+ { path: '/user/:id', component: User }
+
+$route.params.id
+router.push('home')
+router.push({ name: 'user', params: { userId: '123' } })
+router.push({ path: `/user/${userId}` })
+
+<router-link :to="{ name: 'user', params: { userId: 123 }}">User</router-link>
+
+
+vue js project routing :
+
+https://appdividend.com/2018/12/28/vue-router-tutorial-with-example-how-to-use-routing-in-vuejs/
+
+
+install bootstrap :
+
+npm install bootstrap --save
+
+https://www.digitalocean.com/community/tutorials/vuejs-using-bootstrap4
+
+bootstrap-vue :
+
+https://bootstrap-vue.org/play
+
+
+jquery install :
+
+npm install jquery --save
+npm install --save popper.js
+import $ from 'jquery'
+
+datatable :
+
+https://appdividend.com/2018/06/07/vue-datatable-component-example/
+
+colreorder :
+
+http://l-lin.github.io/angular-datatables/#/extensions/colreorder
+
+Vue.js + VeeValidate - Form Validation Example  :
+
+npm install vee-validate@2.2.15
+
+how to use validate in multiple forms vee validate :
+
+https://jsfiddle.net/h9p61vco/5/
+
+https://jasonwatmore.com/post/2018/08/01/vuejs-veevalidate-form-validation-example
+
+https://logaretm.github.io/vee-validate/guide/rules.html#rules
+
+All Validations :
+https://vee-validate.logaretm.com/v2/guide/rules.html#after-params
+
+input file validation :
+
+v-validate="'required|mimes:jpg,pdf,jpeg'"
+v-validate="'required|email'"
+ data-vv-validate-on="blur|change"
+ 
+   v-validate=" isrequired ? 'required' : '' "
+    v-validate="{ required: item.mandatory=='y' }"
+     v-validate="{ required: item.documentname=='' }"
+
+mobile no validation :
+  v-validate="'required|digits:10|numeric'"
+
+v-validate="'required|min:3|max:6'"
+
+ <span class="text-danger">{{ errors.first('cancelcheque') }}</span>
+
+<span class="text-danger">{{ errors.first('cancelcheque') }}</span>
+
+
+ v-validate="'required|mimes:jpg,pdf,jpeg|size:10240'"
+
+v-validate="'required|mimes:jpg,pdf,jpeg'"
+ v-validate="'required|digits:10|numeric'"
+ v-validate="'required|alpha_num'"
+reset validator :
+ this.$validator.reset();
+
+
+Vue.js JWT Authentication with Vuex and Vue Router :
+
+https://bezkoder.com/jwt-vue-vuex-authentication/
+
+
+jquery datatable install:
+
+npm install --save datatables.net-dt
+npm install datatables.net
+npm install --save datatables.net-colreorder-dt
+
+main.js :
+
+import 'datatables.net/js/jquery.dataTables.js'
+import 'datatables.net-dt/css/jquery.dataTables.css';
+import 'datatables.net-colreorder-dt/css/colReorder.dataTables.css'
+import 'datatables.net-colreorder-dt/js/colReorder.dataTables.js'
+
+    $(document).ready(function() {
+      $("#table_id").DataTable();
+    });
+
+
+cookies :
+
+npm install vue-cookies --save
+
+https://www.npmjs.com/package/vue-cookies
+
+ update(id, data) {
+    return Axios.put(`${RESOURCE_NAME}/${id}`, data);
+  },
+
+
+get(id) {
+    return Axios.get(`${RESOURCE_NAME}/${id}`);
+  },
+
+
+bus event :
+
+https://blog.logrocket.com/using-event-bus-in-vue-js-to-pass-data-between-components/
+
+
+common base api :
+
+https://www.digitalocean.com/community/tutorials/vuejs-rest-api-axios
+
+
+bootstrap modal :
+
+https://jsfiddle.net/tunom37u/4/ 
+
+scss file :
+
+npm install sass-loader node-sass
+
+
+icons :
+<font-awesome-icon icon="newspaper" />
+
+for loop :
+
+v-for="claim in data" v-bind:key="claim.id"
+
+swal alert :
+npm install -save vue-sweetalert2  
+main js :
+import VueSweetalert2 from 'vue-sweetalert2';
+
+import 'sweetalert2/dist/sweetalert2.min.css';
+
+Vue.use(VueSweetalert2);
+https://alligator.io/vuejs/vue-sweetalert2/
+
+
+
+disabled :
+
+<input type="text" :disabled="validated == 1">
+
+
+routerlink active :
+
+active-class="router-link-active"
+
+
+Tab component :
+
+https://www.npmjs.com/package/vue-tabs-component
+
+npm install vue-tabs-component --save
+
+main.js:
+import 'vue-tabs-component/docs/resources/tabs-component.css'
+Vue.component('tabs', Tabs);
+Vue.component('tab', Tab);
+
+import {Tabs, Tab} from 'vue-tabs-component';
+
+
+numbers only :
+ @keypress="isNumber($event)"
+
+    isNumber: function(evt) {
+      evt = (evt) ? evt : window.event;
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
+        evt.preventDefault();
+      } else {
+        return true;
+      }
+    }
+input validation :
+
+:class="{ 'is-invalid': submitted && errors.has('regNo') }"
+ v-validate="'required'"
+ v-validate="'required|email'"
+  v-validate="{ required: true, min: 10 }"
+
+  <div
+                            v-if="submitted && errors.has('regNo')"
+                            class="invalid-feedback"
+                          >{{ errors.first('regNo') }}</div>
+
+<span
+                                      v-show="errors.has('provisionalDiagnosis')"
+                                      class="text-danger"
+                                    >The Provisional Diagnosis field is required</span>
+
+dynamic style :
+
+ :style="data.id===colorId  ? { 'background-color': '#D98324'} : ''"
+:style="!roleFlag ? { 'margin': '10px'} : ''"
+
+
+dynamic disable  :
+
+ :disabled="disabled ? '' : null"
+
+isbase64 install:
+
+npm install is-base64
+
+import isBase64 from "is-base64"; particular component
+
+
+
+multi select drop down :
+
+https://vue-multiselect.js.org/#sub-getting-started
+
+
+
+datetime picker :
+
+https://www.npmjs.com/package/vuejs-datetimepicker
+https://vuejsexamples.com/datetimepicker-component-for-vue-js/
+
+:inputAttributes="{placeholder: 'test'}"
+
+https://mengxiong10.github.io/vue2-datepicker/index.html
+
+
+https://chronotruck.github.io/vue-ctk-date-time-picker/
+https://github.com/chronotruck/vue-ctk-date-time-picker/blob/dev/src/App.vue
+
+
+npm i --save vue-ctk-date-time-picker
+
+import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
+import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
+
+Vue.component('VueCtkDateTimePicker', VueCtkDateTimePicker);
+
+Date Picker :
+
+https://www.npmjs.com/package/vuejs-datepicker
+
+Time Picker :
+
+https://phoenixwong.github.io/vue2-timepicker/
+
+capture camera : 
+
+https://x-team.com/blog/webcam-capture-vue/
+
+token interceptors :
+
+https://medium.com/@yaob/how-to-globally-use-axios-instance-and-interceptors-e28f351bb794
+
+
+autocomplete search :
+
+https://vuejsexamples.com/suggestion-list-input-for-vue-js/
+https://github.com/iamstevendao/vue-suggestion
+
+https://github.com/alexurquhart/vue-bootstrap-typeahead
+
+https://github.com/paliari/v-autocomplete
+npm install vue-suggestion
+
+parent child datatable :
+
+https://codepen.io/chansv/pen/BaaWbKR?editors=1010
+https://jsfiddle.net/cj7go6bv/1/
+https://stackoverflow.com/questions/58528631/problem-with-expandable-child-component-in-parent-v-data-table-using-vuetify-2
+
+https://vuejsprojects.com/vue-ads-table-tree
+https://www.npmjs.com/package/vue-ads-table-tree
+
+
+dynamic table :
+
+https://vuejsexamples.com/a-vue-component-of-dynamic-table/
+
+
+dynamic create form :
+
+https://codesandbox.io/s/vmj3r80nxy?file=/src/App.vue:0-1774
+
+
+tabs :
+
+https://renatello.com/vue-js-tabs/
+
+
+Format Date :
+npm install moment
+
+import moment from 'moment'
+    format_date(value) {
+      if (value) {
+        return moment(String(value)).format("DD/MM/YYYY");
+      }
+    }
+
+
+
+clear vuex store :
+
+https://github.com/vuejs/vuex/issues/1118
+
+
+
+input type="file"
+:value="logo" @input="e => logo = e.target.files"
+
+form.healthCard.replace("C:", "").replace("fakepath", "").replace("\\", "").replace("\\", "")
+
+
+
+pass array between components using router:
+
+this.$router.push({
+    name: "SalesInvoice",
+    params: { SalesInvoice: JSON.stringify(this.stockmaster) }
+  });
+
+this.$route.query.SalesInvoice
+this.$route.params.SalesInvoice.
+
+this.$router.push({
+    name: "SalesInvoice",
+    query: { SalesInvoice: "abc" }
+  });
+
+
+List of string using jpa repositiry :
+
+  List<Employee> findByEmployeeNameIn(List<String> names); 
+
+
+ List<Employee> findByEmployeeNameNotIn(List<String> names);  
+
+
+Spring JPA query IN clause example:
+
+
+
+https://javadeveloperzone.com/spring/spring-jpa-query-in-clause-example/
+
+static asstes file download with vue :
+
+add vue.config.js :
+
+  chainWebpack: config => {
+    config.module
+      .rule("vue")
+      .use("vue-loader")
+      .loader("vue-loader")
+      .tap(options => {
+        // modify the options...
+        return options;
+      });
+
+    config.module
+      .rule("pdf")
+      .test(/\.pdf$/)
+      .use("file-loader")
+      .loader("file-loader");
+  }
+
+
+component:
+
+
+<a   :href="pdfLink" 
+                 download="Preauth_Form.pdf">Downlaod</a>
+ pdfLink: require("../../assets/report/Preauth_Form.pdf")
+
+
+pdf download base64 reponse axios :
+
+<a  @click="downloadPDF()">Download API</a>
+
+downloadPDF() {
+const pdf="passedbase64String";
+const linkSource = `data:application/pdf;base64,${pdf}`;
+    const downloadLink = document.createElement("a");
+    const fileName = "Preauth_form.pdf";
+
+    downloadLink.href = linkSource;
+    downloadLink.download = fileName;
+    downloadLink.click();
+}
+https://medium.com/octopus-labs-london/downloading-a-base-64-pdf-from-an-api-request-in-javascript-6b4c603515eb
+
+Datatables - Search Box outside datatable :
+
+https://stackoverflow.com/questions/5990386/datatables-search-box-outside-datatable
+
+ vue-good-table:
+
+https://xaksis.github.io/vue-good-table/guide/style-configuration/sass.html
+
+vue-materialize-datatable :
+https://www.npmjs.com/package/vue-materialize-datatable
+
+
+vue-good-links :
+https://github.com/xaksis/vue-good-links
+
+
+trigger child method from parent compennt :
+
+https://stackoverflow.com/questions/43494001/is-there-any-way-to-trigger-component-method-from-parent-in-vuejs
+
+trigger parent method from child component :
+
+ this.$parent.initTable(
+                    this.url + this.$store.state.hospitalCode,
+                    "Claim Details"
+                  );
+
+
+pass value betweeen components :
+
+https://dev-notes.eu/2018/05/passing-data-between-vue-components/#:~:text=You%20can%20send%20data%20from,the%20data%20value%20to%20pass.
+
+
+Create HTML Formatted Emails :
+
+https://www.aceware.com/htmlemail.html
+
+Export Excel datatable :
+
+https://www.npmjs.com/package/vue-excel-xlsx
+
+Bootstrap Table :
+
+https://examples.bootstrap-table.com/index.html#options/silent-sort.html#view-source
+
+
+npm install bootstrap-table
+
+
+import 'bootstrap-table/dist/bootstrap-table.min.css'
+import 'bootstrap-table/dist/bootstrap-table.min.js';
+import 'bootstrap-table/dist/extensions/mobile/bootstrap-table-mobile.min.js'
+npm install --save tableexport.jquery.plugin
+    data-export-options='{
+         "fileName": "test", 
+         "ignoreColumn": ["state"]
+       }'
+
+Hide column in mobile view :
+
+ columnsHidden : ['proceedTime','document','approvedAmount','dateOfAdmission']
+
+https://bootstrap-table.com/docs/extensions/mobile/
+
+redis intall :
+
+
+https://redis.io/download
+
+run  :
+
+ src/redis-server
+src/redis-cli
+
+run command windows :
+
+redis-server.exe
+collapse method to show and hide :
+
+
+$("#collapseOne").collapse('show');
+
+$("#collapseOne").collapse('hide');
+
+
+
+
+document file epmty :
+
+  document.querySelector('#fileInput').value = ''
+
+current date :
+
+   let currentDate = new Date();
+    let hour = currentDate.getHours();
+    let minutes =
+      (currentDate.getMinutes() < 10 ? "0" : "") + currentDate.getMinutes();
+    let a = hour >= 12 ? "PM" : "AM";
+    hour = currentDate.getHours() % 12;
+    hour = hour ? hour : 12;
+    hour = hour < 10 ? "0" + hour : hour;
+    this.form.time = hour + ":" + minutes + " " + a;
+
+Browser compatibility :
+
+https://stackoverflow.com/questions/52056358/vue-cli-3-project-not-working-on-ie-11
+
+
+npm install es6-promise
+
+
+use href but no action :
+
+href="javascript:void(0)"
+href="javascript:"
+
+Dynamic Query :
+
+https://javadeveloperzone.com/spring/spring-jpa-dynamic-query-example/
+
+https://www.woolha.com/tutorials/java-spring-limiting-query-result-with-spring-data-jpa
+
+list = entityManager.createQuery(query).setFirstResult(10).setMaxResults(10).getResultList();
+
+
+
+
+Interval :
+
+created () {
+	setInterval(() => {
+		this.$store.dispatch('RETRIEVE_DATA_FROM_BACKEND')
+	}, 3000)
+}
+
+
+
+Convert DD-MM-YYYY to YYYY-MM-DD format using Javascript - javascript :
+
+
+var date = "24/09/2018";
+date = date.split("/").reverse().join("/");
+var date2 = "24-09-2018";
+date2 = date.split("-").reverse().join("-");
+console.log(date); //print "2018/09/24"
+console.log(date2); //print "2018-09-24"
+
+
+date diffrence :
+
+var specific_date = new Date('2017-03-26');
+var current_date = new Date();
+if(current_date.getTime() > specific_date.getTime())
+{
+    console.log('current_date date is grater than specific_date')
+}
+else
+{
+    console.log('current_date date is lower than specific_date')
+}
+
+Setting id tag dynamically using vuejs :
+
+:id="`cv${todo.id}`"
+
+Bind file input to a button using Vue.js :
+
+https://stackoverflow.com/questions/37535657/bind-file-input-to-a-button-using-vue-js
+
+set checkbox value :
+
+<input
+  type="checkbox"
+  v-model="toggle"
+  true-value="yes"
+  false-value="no"
+>
+
+Drag and drop :
+
+
+https://codepen.io/joezimjs/pen/yPWQbd
+https://codepen.io/zFunx/pen/ZXXVmm
+
+https://stenvdb.be/articles/building-a-vuejs-drag-and-drop-file-component
+
+
+
+json filter :
+
+main.js :
+
+
+Vue.filter('json', function (value) {
+    return JSON.stringify(value);
+});
+
+
+dynamic document upload :
+
+
+<div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+                                <div
+                                  class="uploadfilecontainer"
+                                  id="drop-area"
+                                  @drop="handleFiles($event,item.documentType,index,item.activity)"
+                                  @click="chooseFiles(index)"
+                                >
+                                  <input
+                                    hidden
+                                    type="file"
+                                    :name="`document${index}`"
+                                    :id="`fileUpload${index}`"
+                                    v-validate="{ required: item.documentName=='' && item.mandatory=='Y'}"
+                                    @change="handleFiles($event,item.documentType,index,item.activity)"
+                                  />
+                                </div>
+                                <span
+                                  v-show="errors.has(`finalBillForm.document${index}`)"
+                                  class="text-danger"
+                                >The document is required</span>
+                              </div>
+                              
+                              
+                              
+                               <div
+                                class="col-lg-2 col-md-4 col-sm-4 col-4"
+                                v-if="item.documentType=='OTHERS'"
+                              >
+                                <button
+                                  v-if="finalBillForm.finalItem.length-1==index"
+                                  type="button"
+                                  class="btn btn-sm btn-primary"
+                                  @click="addFinalItems()"
+                                >
+                                  <font-awesome-icon icon="plus-circle" />
+                                </button>
+                                <button
+                                  v-if=" index!=2"
+                                  type="button"
+                                  class="btn btn-sm btn-danger"
+                                  :style="index>=3 && finalBillForm.finalItem.length-1==index ? { 'margin-left': '8px'} : { 'margin-left': ''}"
+                                  @click="removeFinalItems(index,item.documentName,'item')"
+                                >
+                                  <font-awesome-icon icon="minus-circle" />
+                                </button>
+                              </div>
+                              
+                              
+                               <div
+                                v-if="item.documentType!='OTHERS'"
+                                class="col-lg-3 col-md-4 col-sm-6 col-xs-6"
+                              >
+                                <div v-if="item.documentName!=''" class="files-list">
+                                  <span>{{item.documentName}}</span>
+                                  <button
+                                    type="button"
+                                    class="delete-file"
+                                    @click="removeFinalItems(index,item.documentName,'document')"
+                                  >
+                                    <font-awesome-icon icon="trash" class="text-danger" />
+                                  </button>
+                                </div>
+                              </div>
+ 
+ Js file :
+ 
+  chooseFiles(index) {
+      document.getElementById("fileUpload" + index).click();
+    },
+   handleFiles(event, val, index, activity) {
+      var files = event.target.files || event.dataTransfer.files;
+      if (activity == "INTERIM BILL" || activity == "QUERY BILL") {
+        this.uploadFile(files, val, index, activity);
+      } else if (activity == "FINAL BILL") {
+        this.uploadFinalBillFile(files, val, index);
+      }
+    },
+    
+    dragAndDrop() {
+      let dropArea = document.getElementById("drop-area");
+      if (dropArea != null) {
+        ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
+          dropArea.addEventListener(eventName, this.preventDefaults, false);
+          document.body.addEventListener(
+            eventName,
+            this.preventDefaults,
+            false
+          );
+        });
+        ["dragenter", "dragover"].forEach((eventName) => {
+          dropArea.addEventListener(eventName, this.highlight, false);
+        });
+        ["dragleave", "drop"].forEach((eventName) => {
+          dropArea.addEventListener(eventName, this.unhighlight, false);
+        });
+      }
+    },
+
+    highlight() {
+      let dropArea = document.getElementById("drop-area");
+      dropArea.classList.add("highlight");
+    },
+    unhighlight() {
+      let dropArea = document.getElementById("drop-area");
+      dropArea.classList.remove("highlight");
+    },
+    
+     preventDefaults(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    },
+ Screen width :
+ 
+  window.addEventListener('resize', () => {
+      this.windowWidth = window.innerWidth
+    
+    })
+    
+    :style="windowWidth >450 ? { 'margin-left': '8px'} : { 'margin-left': ''}"
+    
+    
+    
+    Double click :
+    
+    :disabled="isSumbitting"
+    
+     setTimeout(() => {
+        this.isSumbitting = false;
+      }, 2000);
+      
+      
+      
+      generate sequence :
+      
+      generateSequence(){
+      return ("" + Math.random()).substring(2, 8);
+    },
+      
+      get after three months Date :
+      
+      let maxDate = new Date();
+              maxDate.setMonth(maxDate.getMonth() + 3);
+
+
+
+
+
+custom icon swal :
+
+ this.$swal({
+        title: "<span style='color:red;'>"+this.mystoreData.httpErrorMessage+"</span>",
+        text: "",
+        imageUrl:require("../../assets/images/excel.jpg")
+        imageWidth: 100,
+        imageHeight: 100,
+        imageAlt: "Custom image",
+        animation: true,
+        
+      });
+
+
+font awesome :
+
+npm install font-awesome --save
+
+check / uncheck checkbox using jquery :
+ 
+$('#myCheckbox').attr('checked', true); // Checks it
+$('#myCheckbox').attr('checked', false); // Unchecks it
+
+currrent days to next 7 days :
+
+new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
+
+Before 3 month date :
+var oneMonthAgo = new Date(
+    new Date().getFullYear(),
+    new Date().getMonth() - 1, 
+    new Date().getDate()
+);
+
+
+Object.keys(this.memberDetailsById).length != 0
+
+$swal({
+  title: "My title",
+  type: "error",
+  html: "My text with<br />html included"
+});
+
+https://onlinejpgtools.com/convert-base64-to-jpg
+
+
+ @paste.prevent
+
+ isAlphaNum(e) {
+     let char = String.fromCharCode(e.keyCode);
+            if (/^[A-Za-z0-9 ]+$/.test(char)) return true;
+            else e.preventDefault();
+    },
+    
+    
+    Throttle and Debounce :
+    
+    
+    npm install lodash
+    
+     throttleMethod: _.throttle(() => {
+      console.log('Throttle button clicked!')
+    }, 2000)
+    
+    dTest : _.debounce(() => {
+    console.log('hi');
+}, 2000);
+
+
+
+
+Jquer Mapster:
+its for map tag and area tag:
+ref: http://www.outsharked.com/imagemapster/default.aspx?docs.html
+
+
+singleSelect: false,
+      stroke: true,
+        fillColor: '7ab3ff',
+        render_highlight: {
+            fillOpacity: 0.2
+        },
+        render_select: {
+            fillOpacity: 0.5  
+        }
+        
+        
+        
+        
+        render_highlight: {
+        fillOpacity: 0.2,
+        fillColor: '000000',
+        stroke: false,
+        strokeOpacity: 50,
+        strokeColor: "000000",
+        strokeWidth: 5,
+        staticState:true,
+        fill: true
+      },
+      
+      
+      singleSelect: false,
+      stroke: false,
+        fillColor: '7ab3ff',
+        render_highlight: {
+            fillOpacity: 0.5
+        },
+        render_select: {
+            fillOpacity: 0.5  
+        }
+    });
+    https://github.com/jamietre/ImageMapster/tree/main/dist
+   
+   Vuetable2:
+   https://codepen.io/ratiw/pen/QaQvwj
+   
+   
+   vuex:
+   https://medium.com/js-dojo/vuex-2638ba4b1d76
+    
+    
+  extensions for VSCODE:
+  https://medium.com/@deepaksisodiya/top-vs-code-extensions-for-vue-js-development-93cb548baa32
+  
+  
+  <i class="fa fa-camera"></i>
+  
+  <spam style="color: #1d7dff"> <b>Browse</b></spam>
+  
+  
+  Vue overall example:
+  https://www.educba.com/vue-js-drag-and-drop/?source=leftnav
+  
+  
+  
+  Vue dataepicker(<Datepicker>):
+  https://edisdev.github.io/vue-datepicker-ui/props.html#value-modelvalue
+  
+  
+  Cookies and Reload functionlity refrence:
+  https://codesandbox.io/s/xl356qvvkz ----->cookies
+  https://codesandbox.io/s/80k4m2598?file=/index.js ----------->reload
+  
