@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="header">heading<span class="header-span">.</span></h1>
+
+    <!-- <span id="triangle-right"> -->
+    <div>
+      <button type="button" class="btn btn-danger btn-arrow-right">
+        Danger
+      </button>
+    </div>
+  </body>
+  <style>
+    body {
+      /* just for this demo. */
+      padding: 30px;
+    }
+
+    .btn-arrow-right,
+    .btn-arrow-left {
+      position: relative;
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+    .btn-arrow-right {
+      padding-left: 36px;
+    }
+    .btn-arrow-left {
+      padding-right: 36px;
+    }
+    .btn-arrow-right:before,
+    .btn-arrow-right:after {
+      /* make two squares (before and after), looking similar to the button */
+      content: "";
+      position: absolute;
+      top: 5px; /* move it down because of rounded corners */
+      width: 22px; /* same as height */
+      height: 22px; /* button_outer_height / sqrt(2) */
+      background: inherit; /* use parent background */
+      border: inherit; /* use parent border */
+      border-left-color: transparent; /* hide left border */
+      border-bottom-color: transparent; /* hide bottom border */
+      border-radius: 0px 4px 0px 0px; /* round arrow corner, the shorthand property doesn't accept "inherit" so it is set to 4px */
+      -webkit-border-radius: 0px 4px 0px 0px;
+      -moz-border-radius: 0px 4px 0px 0px;
+    }
+    .btn-arrow-right:before,
+    .btn-arrow-right:after {
+      transform: rotate(
+        45deg
+      ); /* rotate right arrow squares 45 deg to point right */
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+    }
+    .btn-arrow-left:before {
+      transform: rotate(
+        225deg
+      ); /* rotate left arrow squares 225 deg to point left */
+      -webkit-transform: rotate(225deg);
+      -moz-transform: rotate(225deg);
+      -o-transform: rotate(225deg);
+      -ms-transform: rotate(225deg);
+    }
+    .btn-arrow-right:before {
+      /* align the "before" square to the left */
+      left: -11px;
+    }
+    .btn-arrow-right:after {
+      /* align the "after" square to the right */
+      right: -11px;
+    }
+    .btn-arrow-right:after {
+      /* bring arrow pointers to front */
+      z-index: 1;
+    }
+    .btn-arrow-right:before {
+      /* hide arrow tails background */
+      background-color: white;
+    }
+  </style>
+</html>

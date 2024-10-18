@@ -1,0 +1,42 @@
+// Common Color codes
+// Text
+$Blue: #0068b4;
+$Blue-Text: #537393; // normal text color
+$Blue-TextLight: #a1bbd5; //place holder color
+$Blue-Fill: #b4cfde; // svg fill
+// BackGround
+$Blue-White: #0d2033; //bg for overall div-card
+$Blue-LightWhite: #f4f9fc; //table header bg
+//
+$Blue-Mid: #0068b4; // sumbit btn bg
+$Gray-Light: #bdc3c7; //reset btn bg
+$Green-Success: #2ecc71; //upload bnt bg
+//
+$Milk-LightWhite: #d7eafc; // card bg
+$Milk-White: #f4fbff; //input border
+
+//
+$Black: #0d2033;
+$violet: #533ffe;
+$Pink: #e84393;
+// Text Varients
+.Text-Blue {
+  color: $Blue-Text;
+}
+.Text-Violet {
+  color: $violet;
+}
+.Text-Pink {
+  color: $Pink;
+}
+.Blue {
+  color: $Blue;
+}
+// utils
+.Fill-Blue {
+  svg {
+    path {
+      fill: $Blue-Fill;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+/* different Width Size */
+.ht-content {
+  height: fit-content;
+}
+.ht-100 {
+  height: 100%;
+}
+.wt-content {
+  width: fit-content;
+}
+.wt-40 {
+  width: 40%;
+}
+.wt-45 {
+  width: 45%;
+}
+.wt-55 {
+  width: 55%;
+}
+.wt-60 {
+  width: 60%;
+}
+.wt-65 {
+  width: 65%;
+}
+.wt-70 {
+  width: 70%;
+}
+.wt-80 {
+  width: 80%;
+}
+/* responsive sizes */
+
+.Wt-Lg-65,
+.Wt-Lg-60 {
+  width: 100%;
+}
+
+/* Media queries */
+/* desktop screen */
+@media only screen and (min-width: 768px) {
+  .Wt-Lg-60 {
+    width: 60%;
+  }
+  .Wt-Lg-65 {
+    width: 65%;
+  }
+}
+
+/*  */
+.sh-t {
+  box-shadow: 0 1px 1px 0 #b4cfde;
+}

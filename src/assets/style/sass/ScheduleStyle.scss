@@ -1,0 +1,29 @@
+.Btn-Card {
+  border: none;
+  padding: 1.5%;
+  border-radius: 8%;
+  margin-left: 0.5%;
+  background-color: transparent;
+  color: #537393;
+}
+.Btn-Card-active {
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(
+    135deg,
+    #3498db 52.08%,
+    rgba(52, 152, 219, 0.65) 100%
+  );
+  svg {
+    path {
+      fill: white;
+    }
+  }
+}
+
+.Btn-Card-Bg {
+  background: #f4fbff;
+  width: fit-content;
+  border: 1px solid #e6ecf9;
+  border-radius: 8px;
+}
