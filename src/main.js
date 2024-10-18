@@ -17,23 +17,58 @@ import "./assets/style/main.css";
 // https://medium.com/front-end-weekly/how-to-use-fon-awesome-5-on-vuejs-project-ff0f28310821
 import "@fortawesome/fontawesome-free/css/all.css";
 import "@fortawesome/fontawesome-free/js/all.js";
-
+import "./registerServiceWorker";
+import * as rules from "vee-validate/dist/rules";
+import * as VeeValidate from "vee-validate";
+import { messages } from "@/datas/validation_messages";
 Vue.use(BootstrapVue);
 Vue.use(VueRouter);
 //
+Object.keys(rules).forEach((rule) => {
+  VeeValidate.extend(rule, {
+    ...rules[rule],
+    message: messages[rule],
+  });
+});
+Vue.use(VeeValidate);
+Vue.component("ValidationObserver", VeeValidate.ValidationObserver);
+Vue.component("ValidationProvider", VeeValidate.ValidationProvider);
+// 
+// import {EventBus} from '@/components/practice/modal/EventBus'
+// Vue.prototype.$drlist=EventBus
+// import EmitModal from '@/components/practice/modal/EmitModal'
 
-delete window.document.referrer;
-window.document.__defineGetter__("referrer", function () {
-  return "yoururl.com";
-});
-console.log("ref", window.document.referrer);
+// Vue.component('')
 //
-delete window.origin;
-window.__defineGetter__("origin", function () {
-  return "origin.com";
-});
-console.log("origin", window.origin);
-//
-export const app = new Vue({ router, store, render: (h) => h(App) }).$mount(
-  "#app"
-);
+// export const app = new Vue({ router, store, render: (h) => h(App) }).$mount("#app");
+
+
+
+import Keycloak from 'keycloak-js';
+
+let initOptions = {
+  // url: "http://localhost:8080/auth",
+  url: "http://auth.fasoftwares.net/auth",
+  realm: "Bagic",
+  clientId: "bagic-ui-ilm",
+  onLoad: "login-required",
+};
+
+if(window.ReactNativeWebView && window.location.href.includes("mobile")){
+  initOptions['clientId'] = "Surveyor"
+}else{
+  initOptions['clientId'] = "bagic-ui-ilm"
+}
+
+
+
+let keycloak = Keycloak(initOptions);
+keycloak.init({ onLoad: initOptions.onLoad,checkLoginIframe:false }).then(()=>{
+  new Vue({ router, store, render: (h) => h(App) }).$mount("#app");
+  if(window.ReactNativeWebView){
+    window.ReactNativeWebView.postMessage("MOUNTED")
+  }
+
+})
+
+export {keycloak}

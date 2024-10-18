@@ -1,5 +1,5 @@
 import VueRouter from "vue-router";
-import store from "@/store";
+// import store from "@/store";
 // lazy loading utility function
 function lazy(path) {
   return () => import(`@/components/${path}Component.vue`);
@@ -18,7 +18,11 @@ var routes = [
   {
     path: "/form",
     name: "form",
-    component: lazy("Form"),
+
+    component: () =>
+      import(
+        /* webpackChunkName: "FormComponent" */ `@/components/pages/FormComponent.vue`
+      ),
 
     aliasname: "Form",
     meta: {
@@ -28,8 +32,17 @@ var routes = [
   {
     path: "/",
     name: "home",
-    component: lazy("Home"),
+    component: lazy("pages/Home"),
     auth: true, //use flag for check auth guard
+    meta: {
+      auth: ["admin", "dev", ""],
+    },
+  },
+  {
+    path: "/mobile",
+    name: "mobile",
+    component: lazy("pages/Home"),
+    auth: true,
     meta: {
       auth: ["admin", "dev", ""],
     },
@@ -37,10 +50,29 @@ var routes = [
   {
     path: "/about/:name/:project",
     name: "about",
-    component: lazy("About"),
+    component: lazy("pages/About"),
     props: true,
     meta: {
       auth: ["admin", "dev"],
+    },
+  },
+  {
+    path: "/webview",
+    name: "webview",
+    component: lazy("pages/WebView"),
+    meta: {
+      auth: ["admin", "dev", ""],
+    },
+  },
+  {
+    path: "/audio",
+    name: "audio",
+    component: () =>
+      import(
+        /* webpackChunkName: "[request]" */ `@/components/pages/AudioComponent.vue`
+      ),
+    meta: {
+      auth: ["admin", "dev", ""],
     },
   },
   // {
@@ -54,7 +86,7 @@ var routes = [
   {
     path: "/parent",
     name: "parent",
-    component: lazy("Parent"),
+    component: lazy("pages/Parent"),
     meta: {
       auth: ["admin", "dev"],
     },
@@ -62,7 +94,7 @@ var routes = [
   {
     path: "/store",
     name: "store",
-    component: lazy("Store"),
+    component: lazy("pages/Store"),
     meta: {
       auth: ["admin", "dev"],
     },
@@ -70,15 +102,23 @@ var routes = [
   {
     path: "/network",
     name: "network",
-    component: lazy("Network"),
+    component: lazy("pages/Network"),
     meta: {
       auth: ["admin"],
     },
   },
   {
+    path: "/other",
+    name: "other",
+    component: lazy("pages/Other"),
+    meta: {
+      auth: ["admin", "dev"],
+    },
+  },
+  {
     path: "/style",
     name: "style",
-    component: lazy("Utils"),
+    component: lazy("pages/Utils"),
     meta: {
       auth: ["admin", "dev"],
     },
@@ -86,15 +126,15 @@ var routes = [
   {
     path: "/table",
     name: "table",
-    component: lazy("Table"),
+    component: lazy("pages/Table"),
     meta: {
       auth: ["admin", "dev"],
     },
   },
   {
-    name: "other",
-    path: "/about/other",
-    component: lazy("Other"),
+    name: "practice",
+    path: "/practice",
+    component: lazy("practice/Demo"),
     meta: {
       auth: ["admin", "dev"],
     },
@@ -102,7 +142,7 @@ var routes = [
   {
     name: "others",
     path: "/about/others",
-    component: lazy("Table"),
+    component: lazy("pages/Table"),
     meta: {
       auth: ["admin", "dev"],
     },
@@ -111,7 +151,7 @@ var routes = [
   {
     name: "routeparent",
     path: "/routeparent",
-    component: lazy("routingcomponent/Parent"),
+    component: lazy("pages/routingcomponent/Parent"),
     meta: {
       auth: ["admin", "dev"],
     },
@@ -120,7 +160,7 @@ var routes = [
       {
         name: "firstroute",
         path: "/firstroute",
-        component: lazy("routingcomponent/First"),
+        component: lazy("pages/routingcomponent/First"),
         meta: {
           auth: ["admin", "dev"],
         },
@@ -128,7 +168,7 @@ var routes = [
       {
         name: "secondroute",
         path: "/secondroute",
-        component: lazy("routingcomponent/Second"),
+        component: lazy("pages/routingcomponent/Second"),
         meta: {
           auth: ["admin", "dev"],
         },
@@ -144,14 +184,14 @@ var routes = [
       auth: ["admin", "dev"],
     },
   },
-  {
-    name: "noaccess",
-    path: "/noacc",
-    component: lazy("NoAccess"),
-    meta: {
-      auth: ["admin", "dev", ""],
-    },
-  },
+  // {
+  //   name: "noaccess",
+  //   path: "/noacc",
+  //   component: lazy("NoAccess"),
+  //   meta: {
+  //     auth: ["admin", "dev", ""],
+  //   },
+  // },
 ];
 
 const router = new VueRouter({
@@ -160,21 +200,21 @@ const router = new VueRouter({
 });
 
 // const role = "admin";
-router.beforeEach((to, from, next) => {
-  // console.log("router", from, to);
-  // if (to.name === "parent") {
-  //   next({ name: "404" });
-  // } else {
-  //   next();
-  // }
-  let role = store.state.profile;
-  console.log("to.meta.auth", role.role);
-  if (to.meta.auth.includes(role.role)) {
-    next();
-  } else {
-    next({ name: "noaccess" });
-  }
-
-  // return true;
-});
+// router.beforeEach((to, from, next) => {
+//   // console.log("router", from, to);
+//   // if (to.name === "parent") {
+//   //   next({ name: "404" });
+//   // } else {
+//   //   next();
+//   // }
+//   // let { role } = store.state.profile;
+//   // // console.log("to.meta.auth", role);
+//   // if (to.meta.auth.includes(role)) {
+//   //   next();
+//   // } else {
+//   //   next({ name: "noaccess" });
+//   // }
+//   next()
+//   // return true;
+// });
 export default router;

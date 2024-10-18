@@ -79,3 +79,31 @@
 
 > https://vuejs.org/api/ -- reference
 > https://cristijora.github.io/vuetable-2-tutorial/#/ - vuetable-2
+
+#### javascript
+
+> eventlooping
+> microtask
+> promise
+> callbacks
+> window object
+> document object
+
+#### vue
+
+> nexttick
+> chunks
+> redux persistence
+> router auth guard
+> dynamic imports
+> dynamic forms
+> vue.extend
+> new vm ,new vue
+
+#### utils
+
+> lodash
+> sass
+> webpack
+> eslint
+> dotenv

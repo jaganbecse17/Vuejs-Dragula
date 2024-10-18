@@ -66,8 +66,7 @@
 > api list
 > sample format :
 > {
-> url:'',
-> payload:'',
+> url:'',payload:'',method:'',doc:'',store:'',mutation:''
 > }
 
 > store api method based function

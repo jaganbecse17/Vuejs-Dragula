@@ -5,6 +5,7 @@
 </template>
 
 <script>
+// import EventBus from '@/components/practice/modal/EventBus'
 export default {
   name: "App",
   components: {},
@@ -13,9 +14,12 @@ export default {
       return this.$store.state.name;
     },
   },
-  mounted() {
-    console.log("env mode", process.env);
-  },
+  mounted(){
+        this.$bus.$on("modalemit",(data,type)=>{
+      console.log("EventBus on",data,type)
+      return "return value"
+    })
+  }
 };
 </script>
 

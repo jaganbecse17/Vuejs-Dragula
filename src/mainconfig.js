@@ -30,6 +30,8 @@ Vue.prototype.$HTTP = HttpCalls;
 
 // Vue.component("BtnS", btn);
 Vue.prototype.$Toast = Toast;
+import EventBus from '@/components/practice/modal/EventBus'
+Vue.prototype.$bus=EventBus
 // format
 // (
 //   title = "No Title",
